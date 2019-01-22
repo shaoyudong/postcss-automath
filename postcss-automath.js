@@ -13,18 +13,17 @@ var postcss = require('postcss');
 var helpers = require('postcss-message-helpers');
 var less = require('less');
 
-var lessParse = less.parse;
-var ParseTree = less.ParseTree;
+// var lessParse = less.parse;
+// var ParseTree = less.ParseTree;
 
 function transformMath(argString) {
     return new Promise(function(resolve, reject) {
-        lessParse('.c{p:' + argString + '}', {}, function(err, root, imports, options) {
+        less.parse('.c{p:' + argString + '}', {}, function(err, root, imports, options) {
             if (err) { return reject(err); }
 
             try {
-                var parseTree = new ParseTree(root, imports);
+                var parseTree = new less.ParseTree(root, imports);
                 var result = parseTree.toCSS(options);
-
                 resolve(result.css.replace(/^\s*\.c\s*\{\s*p:\s*/gm, '').replace(/;\s*\}\s*$/gm, ''));
             } catch (err) {
                 reject(err);
@@ -35,7 +34,6 @@ function transformMath(argString) {
 
 module.exports = postcss.plugin('postcss-math', function () {
     return function (css) {
-
         // Transform CSS AST here
         css.walk(function (node) {
             var nodeProp;
@@ -63,6 +61,7 @@ module.exports = postcss.plugin('postcss-math', function () {
                     node[nodeProp] = computed;
                 })
                 .catch(function(e) {
+                    console.log(e);
                     // Silently discard Mathjs errors and leave the output alone.
                     // Important for ignoring generated classnames containing dashes.
                 });
