@@ -1,6 +1,6 @@
 {
   "name": "postcss-automath-latest",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Automatically evaluate mathematical expressions in your CSS source files, like in SASS or LESS. No special function calls needed as with `postcss-mathjs`.",
   "main": "postcss-automath.js",
   "scripts": {
@@ -8,19 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/EverledgerIO/postcss-automath.git"
+    "url": "git+ssh://git@github.com:shaoyudong/postcss-automath.git"
   },
   "keywords": [
     "PostCSS",
     "math",
     "LESS"
   ],
-  "author": "Everledger.io",
+  "author": "shaoyudong",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/EverledgerIO/postcss-automath/issues"
   },
-  "homepage": "https://github.com/EverledgerIO/postcss-automath#readme",
+  "homepage": "https://github.com/shaoyudong/postcss-automath#readme",
   "dependencies": {
     "less": "^3.9.0",
     "postcss": "^7.0.13",
