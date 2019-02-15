@@ -4,3 +4,5 @@
 - Don't resolve font which contains '/'.
 ## 1.1.1
 - fix bug: Don't resolve '/' in background.
+## 1.1.2
+- fix bug: Don't resolve '/' in border-radius.

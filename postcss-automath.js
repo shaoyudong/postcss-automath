@@ -40,7 +40,7 @@ module.exports = postcss.plugin('postcss-math', function () {
 
             if (node.type === 'decl') {
                 nodeProp = 'value';
-                if (node.prop.match(/font|background/)) { // exclude font、background props match 1px/2px
+                if (node.prop.match(/font|background|border-radius/)) { // exclude font、background props match 1px/2px
                     // exclude / in url(...)
                     if (node[nodeProp].replace(/url\(.*?\)/, '').match(/\//)) {
                         return;
